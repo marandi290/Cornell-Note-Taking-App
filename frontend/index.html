@@ -82,9 +82,6 @@
             <button class="tab-close" id="close-tab-button" type="button" aria-label="Close note">×</button>
           </div>
           <button class="add-tab" id="add-tab-button" type="button" aria-label="New note" title="New note">+</button>
-          <div class="window-controls" aria-hidden="true">
-            <span>−</span><span>□</span><span>×</span>
-          </div>
         </header>
 
         <div class="document-header">
@@ -107,23 +104,23 @@
         </div>
 
         <div class="format-toolbar" role="toolbar" aria-label="Formatting">
-          <button class="style-select" type="button">Normal <span>⌄</span></button>
-          <span class="toolbar-divider"></span>
           <button class="format-button bold-button" type="button" aria-label="Bold" title="Bold">B</button>
           <button class="format-button italic-button" type="button" aria-label="Italic" title="Italic">I</button>
           <button class="format-button underline-button" type="button" aria-label="Underline" title="Underline">U</button>
           <button class="format-button strike-button" type="button" aria-label="Strikethrough" title="Strikethrough">S</button>
           <span class="toolbar-divider"></span>
-          <button class="format-button" type="button" aria-label="Insert link" title="Insert link">↗</button>
-          <button class="format-button image-format-button" type="button" aria-label="Insert image" title="Insert image">▧</button>
           <button class="format-button code-button" type="button" aria-label="Code" title="Code">&lt;/&gt;</button>
           <span class="toolbar-divider"></span>
-          <button class="format-button list-format-button" type="button" aria-label="Bulleted list" title="Bulleted list">☷</button>
-          <button class="format-button numbered-format-button" type="button" aria-label="Numbered list" title="Numbered list">☰</button>
-          <button class="format-button align-button" type="button" aria-label="Align left" title="Align left">≡</button>
-          <button class="format-button align-button" type="button" aria-label="Align center" title="Align center">≣</button>
-          <button class="format-button table-button" type="button" aria-label="Insert table" title="Insert table">▦</button>
-          <button class="format-button" type="button" aria-label="More formatting options" title="More formatting options">···</button>
+          <button class="format-button list-format-button" type="button" aria-label="Bulleted list" title="Bulleted list">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="4" cy="5" r="1" /><circle cx="4" cy="10" r="1" /><circle cx="4" cy="15" r="1" /><path d="M8 5h9M8 10h9M8 15h9" /></svg>
+          </button>
+          <button class="format-button numbered-format-button" type="button" aria-label="Numbered list" title="Numbered list">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4h2v3M3 7h3M3 10h2l-2 2h3M3 15h3l-3 2h3M9 5h8M9 11h8M9 17h8" /></svg>
+          </button>
+          <span class="toolbar-divider"></span>
+          <button class="format-button table-button" type="button" aria-label="Insert table" title="Insert table">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3" width="15" height="14" rx="1" /><path d="M2.5 8h15M2.5 12.5h15M7.5 3v14M12.5 3v14" /></svg>
+          </button>
         </div>
 
         <section class="document-canvas" id="document-canvas">
