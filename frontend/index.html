@@ -71,39 +71,15 @@
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 6h13M6 6l.8 11h6.4L14 6m-6-2h4m-3 5v5m2-5v5" /></svg>
           <span>Trash</span>
         </button>
-        <div class="sidebar-footer"><span class="status-light"></span> All changes saved locally</div>
       </aside>
 
       <main class="editor" aria-label="Cornell note editor">
-        <header class="tab-bar">
-          <div class="active-tab" id="active-tab">
+        <div class="format-toolbar" role="toolbar" aria-label="Note editing tools">
+          <label class="note-title-control">
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h7l4 4v11H5z" /><path d="M12 2.5v4h4M8 10h5m-5 3h5" /></svg>
             <input id="note-title" aria-label="File name" value="" spellcheck="false" />
-            <button class="tab-close" id="close-tab-button" type="button" aria-label="Close note">×</button>
-          </div>
-          <button class="add-tab" id="add-tab-button" type="button" aria-label="New note" title="New note">+</button>
-        </header>
-
-        <div class="document-header">
-          <div class="breadcrumbs" id="breadcrumbs">
-            <span class="breadcrumb-folder"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5.5h6l2 2h8v8H2z" /></svg><span id="breadcrumb-folder">Mathematics</span></span>
-            <span class="breadcrumb-arrow">›</span>
-            <span id="breadcrumb-file">Calculus.md</span>
-          </div>
-          <div class="document-actions">
-            <button class="preview-button" id="preview-button" type="button">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10s2.8-5 8-5 8 5 8 5-2.8 5-8 5-8-5-8-5Z" /><circle cx="10" cy="10" r="2" /></svg>
-              <span>Preview</span>
-            </button>
-            <button class="save-button" id="save-button" type="button">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3h12l2 2v12H3z" /><path d="M6 3v5h8V3M6 17v-6h8v6" /></svg>
-              <span>Save</span>
-            </button>
-            <button class="more-button" id="more-button" type="button" aria-label="More note actions" title="More actions">···</button>
-          </div>
-        </div>
-
-        <div class="format-toolbar" role="toolbar" aria-label="Formatting">
+          </label>
+          <span class="toolbar-divider"></span>
           <button class="format-button bold-button" type="button" aria-label="Bold" title="Bold">B</button>
           <button class="format-button italic-button" type="button" aria-label="Italic" title="Italic">I</button>
           <button class="format-button underline-button" type="button" aria-label="Underline" title="Underline">U</button>
@@ -121,6 +97,17 @@
           <button class="format-button table-button" type="button" aria-label="Insert table" title="Insert table">
             <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3" width="15" height="14" rx="1" /><path d="M2.5 8h15M2.5 12.5h15M7.5 3v14M12.5 3v14" /></svg>
           </button>
+          <div class="document-actions">
+            <button class="preview-button" id="preview-button" type="button">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10s2.8-5 8-5 8 5 8 5-2.8 5-8 5-8-5-8-5Z" /><circle cx="10" cy="10" r="2" /></svg>
+              <span>Preview</span>
+            </button>
+            <button class="save-button" id="save-button" type="button">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3h12l2 2v12H3z" /><path d="M6 3v5h8V3M6 17v-6h8v6" /></svg>
+              <span>Save</span>
+            </button>
+            <button class="more-button" id="more-button" type="button" aria-label="More note actions" title="More actions">···</button>
+          </div>
         </div>
 
         <section class="document-canvas" id="document-canvas">
@@ -152,14 +139,6 @@
           </article>
         </section>
 
-        <footer class="status-bar">
-          <button class="status-language" type="button">Markdown <span>⌄</span></button>
-          <div class="status-details">
-            <span id="cursor-position">Ln 1, Col 1</span>
-            <span>Spaces: 2</span>
-            <span>UTF-8</span>
-          </div>
-        </footer>
       </main>
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
     </div>

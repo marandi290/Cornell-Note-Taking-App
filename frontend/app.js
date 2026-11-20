@@ -283,12 +283,8 @@ function renderEditor() {
   for (const field of fields) field.disabled = !note || previewMode;
   if (!note) {
     for (const field of fields) field.value = "";
-    document.querySelector("#breadcrumb-folder").textContent = "No folder";
-    document.querySelector("#breadcrumb-file").textContent = "No file selected";
-    document.querySelector(".active-tab").classList.add("empty-tab");
     document.querySelector("#preview-button span").textContent = "Preview";
     document.querySelector(".cornell-sheet").classList.remove("preview-mode");
-    updateCursor();
     return;
   }
 
@@ -298,12 +294,8 @@ function renderEditor() {
   cuesInput.value = note.cues || "";
   bodyInput.value = note.body || "";
   summaryInput.value = note.summary || "";
-  document.querySelector("#breadcrumb-folder").textContent = note.notebook || "Unsorted";
-  document.querySelector("#breadcrumb-file").textContent = note.title || "Untitled.md";
-  document.querySelector(".active-tab").classList.remove("empty-tab");
   document.querySelector("#preview-button span").textContent = previewMode ? "Edit" : "Preview";
   document.querySelector(".cornell-sheet").classList.toggle("preview-mode", previewMode);
-  updateCursor();
 }
 
 function selectNote(id) {
@@ -340,13 +332,6 @@ function createNote() {
   titleInput.select();
 }
 
-function updateCursor() {
-  const target = document.activeElement;
-  const line = target && ["TEXTAREA", "INPUT"].includes(target.tagName) ? target.value.slice(0, target.selectionStart ?? 0).split("\n").length : 1;
-  const column = target && ["TEXTAREA", "INPUT"].includes(target.tagName) ? (target.selectionStart ?? 0) - (target.value.lastIndexOf("\n", (target.selectionStart ?? 0) - 1) + 1) + 1 : 1;
-  document.querySelector("#cursor-position").textContent = `Ln ${line}, Col ${column}`;
-}
-
 function saveActiveNote() {
   const note = activeNote();
   if (!note) return;
@@ -361,29 +346,16 @@ function saveActiveNote() {
   saveTimer = setTimeout(() => {
     persistNotes();
     renderTree();
-    document.querySelector("#breadcrumb-file").textContent = note.title;
   }, 350);
 }
 
 for (const field of fields) {
   field.addEventListener("input", () => {
     saveActiveNote();
-    updateCursor();
   });
-  field.addEventListener("click", updateCursor);
-  field.addEventListener("keyup", updateCursor);
 }
 
 document.querySelector("#new-note-button").addEventListener("click", createNote);
-document.querySelector("#add-tab-button").addEventListener("click", createNote);
-document.querySelector("#close-tab-button").addEventListener("click", () => {
-  if (notes.length < 2) {
-    showToast("Create another note before closing this tab.");
-    return;
-  }
-  const next = notes.find((note) => note.id !== activeId);
-  if (next) selectNote(next.id);
-});
 searchInput.addEventListener("input", renderTree);
 document.querySelector("#search-button").addEventListener("click", () => {
   fileSidebar.classList.add("search-open");
